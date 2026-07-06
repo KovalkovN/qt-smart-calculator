@@ -1,0 +1,1 @@
+# qt-smart-calculator

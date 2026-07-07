@@ -26,7 +26,11 @@
      <widget class="QSpinBox" name="qtyInput"/>
     </item>
     <item row="0" column="0">
-     <widget class="QDoubleSpinBox" name="priceInput"/>
+     <widget class="QDoubleSpinBox" name="priceInput">
+      <property name="maximum">
+       <double>1000000.000000000000000</double>
+      </property>
+     </widget>
     </item>
     <item row="5" column="0">
      <widget class="QLabel" name="resultLabel">

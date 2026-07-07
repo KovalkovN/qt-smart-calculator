@@ -13,6 +13,8 @@ SOURCES += \
 
 HEADERS += \
     calculator.h \
+    decorators.h \
+    icalculator.h \
     mainwindow.h
 
 FORMS += \

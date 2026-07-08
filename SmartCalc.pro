@@ -1,4 +1,5 @@
 QT += widgets
+QT += testlib
 
 CONFIG += c++17
 

@@ -1,20 +1,29 @@
 #include "calculator.h"
 #include "decorators.h"
+#include "factory.h"
 
-Calculator::Calculator(QObject *parent) : QObject(parent)
+Calculator::Calculator(QObject *parent) : QObject(parent) {}
+
+void Calculator::calculateTotal(double price, int qty, int productType, bool hasTax, bool hasDiscount)
 {
-}
+    // 1. ПАТТЕРН ФАБРИКА
+    ICalculator* calc = CalculatorFactory::createProduct(productType);
 
-void Calculator::calculateTotal(double price, int qty)
-{
-    ICalculator* calc = new BaseCalculator();
+    // 2. ПАТТЕРН ДЕКОРАТОР
+    if (hasTax)
+    {
+        calc = new TaxDecorator(calc);
+    }
 
-    calc = new TaxDecorator(calc);
+    if (hasDiscount)
+    {
+        calc = new DiscountDecorator(calc);
+    }
 
-    calc = new DiscountDecorator(calc);
-
+    // 3. расчет
     double total = calc->calculate(price, qty);
 
+    // 4. ПАТТЕРН НАБЛЮДАТЕЛЬ
     emit calculationDone(total);
 
     delete calc;

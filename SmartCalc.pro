@@ -14,6 +14,7 @@ SOURCES += \
 HEADERS += \
     calculator.h \
     decorators.h \
+    factory.h \
     icalculator.h \
     mainwindow.h
 

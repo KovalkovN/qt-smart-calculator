@@ -18,10 +18,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_calcButton_clicked()
 {
-    double price = ui->priceInput->value();
-    int qty = ui->qtyInput->value();
+    double p = ui->priceInput->value();
+    int q = ui->qtyInput->value();
+    int type = ui->productTypeCombo->currentIndex();
+    bool tax = ui->taxCheck->isChecked();
+    bool discount = ui->discountCheck->isChecked();
 
-    calcModule->calculateTotal(price, qty);
+    calcModule->calculateTotal(p, q, type, tax, discount);
 }
 
 void MainWindow::displayResult(double total)

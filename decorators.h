@@ -12,41 +12,39 @@ public:
     }
 };
 
-class CalculatorDecorator : public ICalculator
+class Decorator : public ICalculator
 {
 protected:
-    ICalculator* m_wrappee;
+    ICalculator* insideObject;
 
 public:
-    CalculatorDecorator(ICalculator* wrappee) : m_wrappee(wrappee) {}
-
-    double calculate(double price, int qty) override
+    Decorator(ICalculator* obj)
     {
-        return m_wrappee->calculate(price, qty);
+        insideObject = obj;
     }
 };
 
-class TaxDecorator : public CalculatorDecorator
+class TaxDecorator : public Decorator
 {
 public:
-    TaxDecorator(ICalculator* wrappee) : CalculatorDecorator(wrappee) {}
+    TaxDecorator(ICalculator* obj) : Decorator(obj) {}
 
     double calculate(double price, int qty) override
     {
-        double result = CalculatorDecorator::calculate(price, qty);
-        return result * 1.20;
+        double baseResult = insideObject->calculate(price, qty);
+        return baseResult * 1.20;
     }
 };
 
-class DiscountDecorator : public CalculatorDecorator
+class DiscountDecorator : public Decorator
 {
 public:
-    DiscountDecorator(ICalculator* wrappee) : CalculatorDecorator(wrappee) {}
+    DiscountDecorator(ICalculator* obj) : Decorator(obj) {}
 
     double calculate(double price, int qty) override
     {
-        double result = CalculatorDecorator::calculate(price, qty);
-        return result * 0.90;
+        double baseResult = insideObject->calculate(price, qty);
+        return baseResult * 0.90;
     }
 };
 

@@ -8,7 +8,7 @@ class Calculator : public QObject
     Q_OBJECT
 public:
     explicit Calculator(QObject *parent = nullptr);
-    void calculateTotal(double price, int qty);
+    void calculateTotal(double price, int qty, int productType, bool hasTax, bool hasDiscount);
 
 signals:
     void calculationDone(double result);

@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("Smart Calculator");
 
     calcModule = new Calculator(this);
     connect(calcModule, &Calculator::calculationDone, this, &MainWindow::displayResult);

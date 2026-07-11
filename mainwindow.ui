@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>422</width>
+    <width>490</width>
     <height>600</height>
    </rect>
   </property>
@@ -15,24 +15,38 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="2">
+     <widget class="QCheckBox" name="discountCheck">
+      <property name="text">
+       <string>Применить скидку (10%)</string>
+      </property>
+     </widget>
+    </item>
     <item row="2" column="0">
-     <widget class="QSpinBox" name="qtyInput"/>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Количество:</string>
+      </property>
+     </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QDoubleSpinBox" name="priceInput">
-      <property name="maximum">
-       <double>1000000.000000000000000</double>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="resultLabel">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>Итого: 0</string>
+       <string>Цена:</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="qtyInput"/>
+    </item>
+    <item row="5" column="0" colspan="3">
+     <widget class="QPushButton" name="calcButton">
+      <property name="text">
+       <string>Рассчитать</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
      <widget class="QComboBox" name="productTypeCombo">
       <item>
        <property name="text">
@@ -46,24 +60,27 @@
       </item>
      </widget>
     </item>
+    <item row="7" column="2">
+     <widget class="QTextEdit" name="historyEdit"/>
+    </item>
     <item row="1" column="1">
+     <widget class="QDoubleSpinBox" name="priceInput">
+      <property name="maximum">
+       <double>1000000.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
      <widget class="QCheckBox" name="taxCheck">
       <property name="text">
        <string>Добавить НДС (20%)</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QCheckBox" name="discountCheck">
+    <item row="7" column="1">
+     <widget class="QLabel" name="resultLabel">
       <property name="text">
-       <string>Применить скидку (10%)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0" colspan="2">
-     <widget class="QPushButton" name="calcButton">
-      <property name="text">
-       <string>Рассчитать</string>
+       <string>Итого: 0</string>
       </property>
      </widget>
     </item>
@@ -74,7 +91,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>422</width>
+     <width>490</width>
      <height>25</height>
     </rect>
    </property>
